@@ -5,9 +5,9 @@ from PyQt5.QtWidgets import QApplication, QWidget, QWizard, QLabel,QWizardPage, 
 from PyQt5.QtGui import QIcon
 
 
-class MagicWizard(QWizard):
+class TrimmerWizard(QWizard):
     def __init__(self, parent=None):
-        super(MagicWizard, self).__init__(parent)
+        super(TrimmerWizard, self).__init__(parent)
         self.addPage(InfoPage(self))
         self.addPage(LoadPage(self))
         self.addPage(TransformPage(self))
@@ -47,7 +47,7 @@ class LoadPage(QWizardPage):
 
     def openFileNameDialog(self):
         options = QFileDialog.Options()
-        fileName = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","KXX Files (*.kxx)", options=options)
+        fileName = QFileDialog.getOpenFileName(self,"Vyberte zdrojový KXX soubor", "","KXX Files (*.kxx)", options=options)
         if fileName:
             self.textbox.setText(fileName[0])
 
@@ -152,6 +152,6 @@ class TransformPage(QWizardPage):
 if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
-    wizard = MagicWizard()
+    wizard = TrimmerWizard()
     wizard.show()
     sys.exit(app.exec_())
